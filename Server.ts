@@ -1,14 +1,21 @@
 /// <reference path="_reference.ts"/>
-import http =require('http');
-
+import express =require('express');
+import path =require('path');
+var app:express.Express=express();
 var port:number=process.env.port || 3000;
 
-var server:http.Server = http.createServer(
-    function(req:http.ServerRequest,res:http.ServerResponse) {
-        res.writeHead(200,{'Content-Type':'text/plain'});
-        res.end("Hello Node!");
-    });
+//main route
+app.get('/', function (req:express.Request,res:express.Response,next:any){
+    res.sendFile(path.join(_dirname,"Public","index.html"));
     
-    server.listen(port,function(){
-        console.log("Server started Listening port:"+port);
-    });
+});
+//route for info
+app.get('/', function (req:express.Request,res:express.Response){
+    res.sendFile(path.join(_dirname,"Public","info.html"));
+    
+});
+app.listen(port,function()
+{
+    console.log("App Started.............."+port);
+});
+

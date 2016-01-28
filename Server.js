@@ -1,11 +1,17 @@
 /// <reference path="_reference.ts"/>
-var http = require('http');
+var express = require('express');
+var path = require('path');
+var app = express();
 var port = process.env.port || 3000;
-var server = http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end("Hello Node!");
+//main route
+app.get('/', function (req, res, next) {
+    res.sendFile(path.join(_dirname, "Public", "index.html"));
 });
-server.listen(port, function () {
-    console.log("Server started Listening port:" + port);
+//route for info
+app.get('/', function (req, res) {
+    res.sendFile(path.join(_dirname, "Public", "info.html"));
+});
+app.listen(port, function () {
+    console.log("App Started.............." + port);
 });
 //# sourceMappingURL=Server.js.map
