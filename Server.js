@@ -1,17 +1,11 @@
 /// <reference path="_reference.ts"/>
-var express = require('express');
-var path = require('path');
-var app = express();
-var port = process.env.port || 3000;
-//main route
-app.get('/', function (req, res, next) {
-    res.sendFile(path.join(_dirname, "Public", "index.html"));
+var http = require('http');
+var port = process.env.PORT || 8080;
+var server = http.createServer(function (req, res) {
+    res.writeHead(200, { 'content-Type': 'text/plain' });
+    res.end("Hello Node!");
 });
-//route for info
-app.get('/', function (req, res) {
-    res.sendFile(path.join(_dirname, "Public", "info.html"));
-});
-app.listen(port, function () {
+server.listen(port, function () {
     console.log("App Started.............." + port);
 });
 //# sourceMappingURL=Server.js.map
