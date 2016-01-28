@@ -1,0 +1,19 @@
+{
+  "name": "week3",
+  "description": "",
+  "main": "Server.js",
+  "authors": [
+    "patelritesh261 <patelritesh261@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "Scripts/lib",
+    "test",
+    "tests"
+  ]
+}
